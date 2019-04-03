@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+
+		<meta charset="UTF-8">
+
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+		<title>OurTime</title>
+		<link rel="stylesheet" href="./layui/css/layui.css" />
+		<style>
+			body,
+			html {
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				margin: 0;
+				padding: 0;
+				background: grey;
+			}
+			
+			#background {
+				position: fixed;
+				top: 0;
+				left: 0;
+				z-index: -100;
+			}
+			
+			.countTimeBox{
+				width: 60%;
+				margin: 20px auto;
+				padding: 5px;
+				text-align: center;
+				color: #FFFFFF;
+				font-size: 18px;
+				border: 1px double #FFFFFF;
+				border-left: none;
+				border-right: none;
+			}
+		</style>
+
+	</head>
+
+	<body>
+		<canvas id="background"></canvas>
+		<audio autoplay="autoplay" loop="-1" preload="auto">
+			<source src="music/timeLineBgm.mp3">
+		</audio>
+
+		<ul class="layui-timeline timelineUl" style="padding-top: 50px;">
+			<li class="layui-timeline-item">
+				<i class="layui-icon layui-anim layui-anim-rotate layui-anim-loop layui-timeline-axis"></i>
+				<div class="layui-timeline-content layui-text">
+					<div class="layui-timeline-title" style="color: #FFFFFF">没有yy和hh <i class="layui-icon layui-icon-face-cry"></i></div>
+				</div>
+			</li>
+
+			<li class="layui-timeline-item">
+				<i class="layui-icon layui-timeline-axis"></i>
+				<div class="layui-timeline-content layui-text">
+					<h3 class="layui-timeline-title" style="color: #FFFFFF">1994年10月31日</h3>
+					<p class="layui-timeline-content" style="color: #FFFFFF">hh成功破蛋！<br/>坐标，中国，宁夏银川。</p>
+				</div>
+			</li>
+
+		</ul>
+		<div class="countTimeBox">
+			<p>距离00年00月00日</p>
+			<span id="_d">00</span>  
+        	<span id="_h">00</span>  
+        	<span id="_m">00</span>  
+        	<span id="_s">00</span> 
+		</div>
+
+		<script async type="text/javascript" src="js/background.js"></script>
+		<script src="jquery-3.3.1.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" src="./layui/layui.js"></script>
+		<script src="ourTims.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+
+			//这段代码并没有用到
+			function formatJson(arr) {
+				var json = [];
+				arr.forEach(function(item) {
+					var temp = {};
+					item.forEach(function(value, index) {
+						if (index == 0) {
+							temp["time"] = value;							
+						} else if (index == 1) {
+							temp["item"] = value;							
+						}
+					});
+					json.push(temp);
+				});
+				return json
+			}
+			
+			//结构示范
+			/*<li class="layui-timeline-item">
+				<i class="layui-icon layui-timeline-axis"></i>
+				<div class="layui-timeline-content layui-text">
+					<h3 class="layui-timeline-title" style="color: #FFFFFF">1994年10月31日</h3>
+					<p class="layui-timeline-content" style="color: #FFFFFF">hh成功破蛋！坐标，中国，宁夏银川。</p>
+				</div>
+			</li>
+			 */
+			
+			var $timeline = $(".timelineUl");
+			$(timesArr).each(function(){
+				$.each(this,function(time,value){
+					$('<li class="layui-timeline-item"></li>')
+					.append('<i class="layui-icon layui-timeline-axis"></i>')
+					.append('<div class="layui-timeline-content layui-text"></div>')
+					.appendTo($timeline)
+					.children("div")
+					.append('<h3 class="layui-timeline-title" style="color: #FFFFFF">'+ time +'</h3>')
+					.append('<p class="layui-timeline-content" style="color: #FFFFFF">'+ value +'</p>')
+					
+				});
+			});
+			
+			//倒计时
+            //设置截止时间  
+            var str = "2020/5/20 00:00:00";
+            str = "2018/1/15 00:00:00"
+            var endDate = new Date(str); 
+            var end = endDate.getTime();  
+            
+            var Y = endDate.getFullYear();
+            var M = endDate.getMonth() + 1;
+            var D = endDate.getDate();
+            
+            $('.countTimeBox>p').html('距离'+ Y +'年'+ M +'月'+ D +'日')
+            
+            //定义变量 d,h,m,s保存倒计时的时间  
+            var d,h,m,s;
+            
+			countTime()
+            
+			function countTime() {  
+				//获取当前时间  
+				var date = new Date();  
+				var now = date.getTime();  
+				
+				//时间差
+            	var leftTime = Math.abs(end - now)
+				
+	            if (leftTime >= 0) {  
+	                d = Math.floor(leftTime/1000/60/60/24);  
+	                h = Math.floor(leftTime/1000/60/60%24);  
+	                m = Math.floor(leftTime/1000/60%60);  
+	                s = Math.floor(leftTime/1000%60);                     
+	            }  
+	            //将倒计时赋值到div中  
+				//document.getElementById("_d").innerHTML = d+" 天"; 
+	            $("#_d").html(d + " 天")
+	            document.getElementById("_h").innerHTML = h + " 时";  
+	            document.getElementById("_m").innerHTML = m + " 分";  
+	            document.getElementById("_s").innerHTML = s + " 秒";  
+	            //递归每秒调用countTime方法，显示动态时间效果  
+	            setTimeout(countTime,1000);
+			}
+
+
+		</script>
+
+	</body>
+
+</html>

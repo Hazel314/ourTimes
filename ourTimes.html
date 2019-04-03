@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+
+		<meta charset="UTF-8">
+
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+		<title>OurTime</title>
+		<link rel="stylesheet" href="./layui/css/layui.css" />
+		<link rel="stylesheet" href="Links/layui/css/layui.css" />
+		<style>
+			body,
+			html {
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				margin: 0;
+				padding: 0;
+			}
+			
+			#background {
+				position: fixed;
+				top: 0;
+				left: 0;
+				z-index: -100;
+			}
+		</style>
+
+	</head>
+
+	<body>
+		<canvas id="background"></canvas>
+		<audio autoplay="autoplay" loop="-1" preload="auto">
+			<source src="music/timeLineBgm.mp3">
+		</audio>
+
+		<ul class="layui-timeline" style="padding-top: 50px;">
+			<li class="layui-timeline-item">
+				<i class="layui-icon layui-anim layui-anim-rotate layui-anim-loop layui-timeline-axis"></i>
+				<div class="layui-timeline-content layui-text">
+					<div class="layui-timeline-title" style="color: #FFFFFF">没有yy和hh <i class="layui-icon layui-icon-face-cry"></i></div>
+				</div>
+			</li>
+			<li class="layui-timeline-item">
+				<i class="layui-icon layui-timeline-axis"></i>
+				<div class="layui-timeline-content layui-text">
+					<h3 class="layui-timeline-title" style="color: #FFFFFF">1994年10月31日</h3>
+					<p class="layui-timeline-content" style="color: #FFFFFF">hh成功破蛋！坐标，中国，宁夏银川。</p>
+				</div>
+			</li>
+			<li class="layui-timeline-item">
+				<i class="layui-icon layui-timeline-axis"></i>
+				<div class="layui-timeline-content layui-text">
+					<h3 class="layui-timeline-title" style="color: #FFFFFF">1994年11月12日</h3>
+					<p class="layui-timeline-content" style="color: #FFFFFF">yy成功破蛋！坐标，中国，四川成都。</p>
+				</div>
+			</li>
+			<li class="layui-timeline-item">
+				<i class="layui-icon layui-timeline-axis"></i>
+				<div class="layui-timeline-content layui-text">
+					<h3 class="layui-timeline-title" style="color: #FFFFFF">2013年9月</h3>
+					<p class="layui-timeline-content" style="color: #FFFFFF">yy和hh同时考上重庆的大学，从此开始了长达四年的大学时光，可惜在大学期间没有遇见彼此。</p>
+				</div>
+			</li>
+			<li class="layui-timeline-item">
+				<i class="layui-icon layui-timeline-axis"></i>
+				<div class="layui-timeline-content layui-text">
+					<h3 class="layui-timeline-title" style="color: #FFFFFF">2017年7月7日</h3>
+					<p class="layui-timeline-content" style="color: #FFFFFF">第一次见面！坐标，中国，广东深圳，东方宾馆。</p>
+				</div>
+			</li>
+			<li class="layui-timeline-item">
+				<i class="layui-icon layui-timeline-axis"></i>
+				<div class="layui-timeline-content layui-text">
+					<h3 class="layui-timeline-title" style="color: #FFFFFF">2018年1月1日</h3>
+					<p class="layui-timeline-content" style="color: #FFFFFF">跳一跳小游戏外挂事件，yy和hh聊到了天亮。</p>
+				</div>
+			</li>
+			<li class="layui-timeline-item">
+				<i class="layui-icon layui-timeline-axis"></i>
+				<div class="layui-timeline-content layui-text">
+					<h3 class="layui-timeline-title" style="color: #FFFFFF">2018年1月4日</h3>
+					<p class="layui-timeline-content" style="color: #FFFFFF">yy陪hh加班，凌晨2点把hh送到家，顺便吃了份揪面。</p>
+				</div>
+			</li>
+			<li class="layui-timeline-item">
+				<i class="layui-icon layui-timeline-axis"></i>
+				<div class="layui-timeline-content layui-text">
+					<h3 class="layui-timeline-title" style="color: #FFFFFF">2018年1月7日</h3>
+					<p class="layui-timeline-content" style="color: #FFFFFF">yy和hh第一次单独出去玩。坐标，中国，深圳南山。爬完南山后看了前任3的电影，随便在南山吃了一碗面。</p>
+				</div>
+			</li>
+			<li class="layui-timeline-item">
+				<i class="layui-icon layui-timeline-axis"></i>
+				<div class="layui-timeline-content layui-text">
+					<h3 class="layui-timeline-title" style="color: #FFFFFF">2018年1月14日</h3>
+					<p class="layui-timeline-content" style="color: #FFFFFF">yy和hh第二次出去玩。坐标，中国，深圳塘朗山。晚上去了小龙坎和同事一起吃了火锅。</p>
+				</div>
+			</li>
+			<li class="layui-timeline-item">
+				<i class="layui-icon layui-timeline-axis"></i>
+				<div class="layui-timeline-content layui-text">
+					<h3 class="layui-timeline-title" style="color: #FFFFFF">2018年1月15日</h3>
+					<p class="layui-timeline-content" style="color: #FFFFFF">yy和hh成功牵手！坐标，中国，深圳福永。</p>
+				</div>
+			</li>
+			<li class="layui-timeline-item">
+				<i class="layui-icon layui-timeline-axis"></i>
+				<div class="layui-timeline-content layui-text">
+					<h3 class="layui-timeline-title" style="color: #FFFFFF">2018年1月20日</h3>
+					<p class="layui-timeline-content" style="color: #FFFFFF">yy和hh第一次mua！坐标，中国，深圳福永。 这天yy陪hh参加测试部的聚餐……<i class="layui-icon layui-icon-face-surprised"></i></p>
+				</div>
+			</li>
+			<li class="layui-timeline-item">
+				<i class="layui-icon layui-timeline-axis"></i>
+				<div class="layui-timeline-content layui-text">
+					<h3 class="layui-timeline-title" style="color: #FFFFFF">2018年1月26日</h3>
+					<p class="layui-timeline-content" style="color: #FFFFFF">yy和hh第一次鼓掌！坐标，中国，深圳福永。今天下班后yy和hh一起去了深圳的人才公园，晚上…… <i class="layui-icon layui-icon-face-surprised"></i></p>
+				</div>
+			</li>
+			<li class="layui-timeline-item">
+				<i class="layui-icon layui-timeline-axis"></i>
+				<div class="layui-timeline-content layui-text">
+					<h3 class="layui-timeline-title" style="color: #FFFFFF">2018年2月10日</h3>
+					<p class="layui-timeline-content" style="color: #FFFFFF">yy和hh第一次合照！第二天就要回家过年了，不拍照回去怎么看什么？</p>
+				</div>
+			</li>
+			<li class="layui-timeline-item">
+				<i class="layui-icon layui-timeline-axis"></i>
+				<div class="layui-timeline-content layui-text">
+					<h3 class="layui-timeline-title" style="color: #FFFFFF">2018年2月11日</h3>
+					<p class="layui-timeline-content" style="color: #FFFFFF">yy和hh第一次分开。坐标，中国，深圳北站。yy将hh送进火车站……</p>
+				</div>
+			</li>
+			<li class="layui-timeline-item">
+				<i class="layui-icon layui-timeline-axis"></i>
+				<div class="layui-timeline-content layui-text">
+					<h3 class="layui-timeline-title" style="color: #FFFFFF">2018年2月14日</h3>
+					<p class="layui-timeline-content" style="color: #FFFFFF">yy和hh第一次情人节。没有在一起过。 <i class="layui-icon layui-icon-face-cry"></i></p>
+				</div>
+			</li>
+			<li class="layui-timeline-item">
+				<i class="layui-icon layui-timeline-axis"></i>
+				<div class="layui-timeline-content layui-text">
+					<h3 class="layui-timeline-title" style="color: #FFFFFF">2018年2月23日</h3>
+					<p class="layui-timeline-content" style="color: #FFFFFF">yy和hh第一次分开后的见面！坐标，中国，深圳，宝安机场。</p>
+				</div>
+			</li>
+			<li class="layui-timeline-item">
+				<i class="layui-icon layui-timeline-axis"></i>
+				<div class="layui-timeline-content layui-text">
+					<h3 class="layui-timeline-title" style="color: #FFFFFF">2018年3月2日</h3>
+					<p class="layui-timeline-content" style="color: #FFFFFF">yy和hh搬到一起了！坐标，中国，深圳福永。</p>
+				</div>
+			</li>
+			<li class="layui-timeline-item">
+				<i class="layui-icon layui-timeline-axis"></i>
+				<div class="layui-timeline-content layui-text">
+					<h3 class="layui-timeline-title" style="color: #FFFFFF">2018年3月10日</h3>
+					<p class="layui-timeline-content" style="color: #FFFFFF">第一次去广州玩，去看了广州塔，游了珠江，逛了天河城。由于没有提前订好房间，差点找不到住宿，yy的锅……</p>
+				</div>
+			</li>
+			<li class="layui-timeline-item">
+				<i class="layui-icon layui-timeline-axis"></i>
+				<div class="layui-timeline-content layui-text">
+					<h3 class="layui-timeline-title" style="color: #FFFFFF">2018年3月22日</h3>
+					<p class="layui-timeline-content" style="color: #FFFFFF">hh出差去武汉，这次走了一个星期。yy一个人在家守着。</p>
+				</div>
+			</li>
+			<li class="layui-timeline-item">
+				<i class="layui-icon layui-timeline-axis"></i>
+				<div class="layui-timeline-content layui-text">
+					<h3 class="layui-timeline-title" style="color: #FFFFFF">2018年3月25日</h3>
+					<p class="layui-timeline-content" style="color: #FFFFFF">hh出差去郑州，晚上在外面喝了白酒。yy心里好担心……</p>
+				</div>
+			</li>
+			<li class="layui-timeline-item">
+				<i class="layui-icon layui-timeline-axis"></i>
+				<div class="layui-timeline-content layui-text">
+					<h3 class="layui-timeline-title" style="color: #FFFFFF">2018年5月4日</h3>
+					<p class="layui-timeline-content" style="color: #FFFFFF">yy家里有事需要回家，留下了hh一个人在家。</p>
+				</div>
+			</li>
+			<li class="layui-timeline-item">
+				<i class="layui-icon layui-timeline-axis"></i>
+				<div class="layui-timeline-content layui-text">
+					<h3 class="layui-timeline-title" style="color: #FFFFFF">2018年5月20日</h3>
+					<p class="layui-timeline-content" style="color: #FFFFFF">今天5月20号，在一起126天了。在过去的二十几年里，yy和hh的每一个决定发生了变化可能就不能遇见了。所以，请珍惜！</p>
+				</div>
+			</li>
+		</ul>
+
+		<script async type="text/javascript" src="js/background.js"></script>
+		<script type="text/javascript" src="./layui/layui.js"></script>
+		<script src="Links/layui/layui.js" type="text/javascript" charset="utf-8"></script>
+
+	</body>
+
+</html>
