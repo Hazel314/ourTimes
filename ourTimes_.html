@@ -42,6 +42,7 @@
 				border: 1px double #FFFFFF;
 				border-left: none;
 				border-right: none;
+				cursor: pointer;
 			}
 		</style>
 
@@ -57,7 +58,7 @@
 			<li class="layui-timeline-item">
 				<i class="layui-icon layui-anim layui-anim-rotate layui-anim-loop layui-timeline-axis"></i>
 				<div class="layui-timeline-content layui-text">
-					<div class="layui-timeline-title" style="color: #FFFFFF">没有yy和hh <i class="layui-icon layui-icon-face-cry"></i></div>
+					<div class="layui-timeline-title" style="color: #FFFFFF">yy和hh的故事 <i class="layui-icon layui-icon-face-smile"></i><br/>要从很久很久以前讲起……</div>
 				</div>
 			</li>
 
@@ -74,7 +75,7 @@
 		<script async type="text/javascript" src="js/background.js"></script>
 		<script src="jquery-3.3.1.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript" src="./layui/layui.js"></script>
-		<script src="ourTims.js" type="text/javascript" charset="utf-8"></script>
+		<script src="ourTimes.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
 
 			//这段代码并没有用到
@@ -118,28 +119,45 @@
 				});
 			});
 			
+			//获取当前时间  
+			var myDate = new Date(); 
+//			var	nowDate = myDate.toLocaleDateString();
+			var nowDate = myDate.getFullYear() + '年' + (myDate.getMonth() + 1) + '月' + myDate.getDate() + '日'; 
+			
+			$('<li class="layui-timeline-item"></li>')
+				.append('<i class="layui-icon layui-timeline-axis"></i>')
+				.append('<div class="layui-timeline-content layui-text"></div>')
+				.appendTo($timeline)
+				.children("div")
+				.append('<h3 class="layui-timeline-title" style="color: #FFFFFF">'+ nowDate +'</h3>')
+				.append('<p class="layui-timeline-content" style="color: #FFFFFF">'+ murmur +'</p>')
+			
 			//倒计时
             //设置截止时间  
-            var str = "2020/5/20 00:00:00";
-            str = "2018/1/15 00:00:00"
-            var endDate = new Date(str); 
-            var end = endDate.getTime();  
+            var str1 , str2 , str;
+            str1 = "2018/1/15 00:00:00";
+            str2 = "2020/5/20 00:00:00";
+            str = str1;
             
-            var Y = endDate.getFullYear();
-            var M = endDate.getMonth() + 1;
-            var D = endDate.getDate();
-            
-            $('.countTimeBox>p').html('距离'+ Y +'年'+ M +'月'+ D +'日')
-            
-            //定义变量 d,h,m,s保存倒计时的时间  
-            var d,h,m,s;
             
 			countTime()
             
 			function countTime() {  
-				//获取当前时间  
-				var date = new Date();  
-				var now = date.getTime();  
+				var endDate = new Date(str); 
+				var end = endDate.getTime();  
+				
+				var Y = endDate.getFullYear();
+				var M = endDate.getMonth() + 1;
+				var D = endDate.getDate();
+				
+				$('.countTimeBox>p').html('距离'+ Y +'年'+ M +'月'+ D +'日')
+            
+				//定义变量 d,h,m,s保存倒计时的时间  
+				var d,h,m,s;
+				
+				//当前时间
+				myDate = new Date();
+				var now = myDate.getTime(); 
 				
 				//时间差
             	var leftTime = Math.abs(end - now)
@@ -159,6 +177,15 @@
 	            //递归每秒调用countTime方法，显示动态时间效果  
 	            setTimeout(countTime,1000);
 			}
+			
+			var countTimeBox = $(".countTimeBox")[0];
+			countTimeBox.addEventListener("touchstart" , function(){
+				str = str2;
+			});
+			countTimeBox.addEventListener("touchend" , function(){
+				str = str1;
+			});
+			
 
 
 		</script>
